@@ -1,10 +1,12 @@
 import streamlit as st
+
 from Pages.multi_page import MultiPage
 from Pages import login, financial_import, view_financials
-from settings import check_session
+from db import DB
 
 def main():
     app = MultiPage()
+    st.session_state['db'] = DB('secrets/aic2021-b72a6-firebase-adminsdk-cs1gs-777235e9ad.json')
 
     st.title('ACCOUNTING INNOVATION CHALLENGE 2021')
 
