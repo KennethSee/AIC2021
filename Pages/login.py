@@ -1,7 +1,6 @@
 import streamlit as st
-import time
 
-import settings
+from utils import settings
 
 
 def app():

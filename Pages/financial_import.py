@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-from settings import check_session, get_session_id
+from utils.settings import check_session, get_session_id
 
 
 def app():

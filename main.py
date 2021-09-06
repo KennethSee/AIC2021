@@ -1,7 +1,7 @@
 import streamlit as st
 
 from Pages.multi_page import MultiPage
-from Pages import login, financial_import, view_financials
+from Pages import login, financial_import, view_financials, manage_drivers, driver_values
 from db import DB
 
 def main():
@@ -14,6 +14,8 @@ def main():
     app.add_page('Login', login.app)
     app.add_page('Financial Import', financial_import.app)
     app.add_page('View Financials', view_financials.app)
+    app.add_page('Manage Drivers', manage_drivers.app)
+    app.add_page('Set Driver Values', driver_values.app)
 
     app.run()
 

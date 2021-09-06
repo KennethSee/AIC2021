@@ -1,5 +1,8 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
+from functools import cmp_to_key
+
+from utils.date import compare_dates
 
 
 class DB:
@@ -9,8 +12,9 @@ class DB:
             firebase_admin.initialize_app(cd)
         self.db = firestore.client()
         self.companies = self.db.collection(u'companies')
+        self.drivers = self.db.collection(u'drivers')
 
-    def get_all(self):
+    def get_all_financials(self):
         docs = self.companies.stream()
         for doc in docs:
             print(doc.id, doc.to_dict())
@@ -21,6 +25,10 @@ class DB:
             return ref.get().to_dict()
         else:
             return None
+
+    def get_financial_dates(self, company_id):
+        dates = [date for date, data in self.get_company_financials(company_id).items() if date != 'mapping']
+        return sorted(dates, key=cmp_to_key(compare_dates))
 
     def insert_financials(self, company_id: str, date: str, financials: dict):
         ref = self.companies.document(company_id)
@@ -33,6 +41,27 @@ class DB:
             self.companies.document(company_id).create({
                 date: financials
             })
+
+    def get_company_drivers(self, company_id):
+        ref = self.drivers.document(company_id)
+        if ref.get().exists:
+            return ref.get().to_dict()
+        else:
+            return None
+
+    def insert_driver(self, company_id: str, driver_id: str, driver_info: dict):
+        ref = self.drivers.document(company_id)
+        doc = ref.get()
+        if doc.exists:
+            ref.update({driver_id: driver_info})
+        else:
+            self.drivers.document(company_id).create({driver_id: driver_info})
+
+    def delete_driver(self, company_id: str, driver_id: str):
+        ref = self.drivers.document(company_id)
+        ref.update({
+            driver_id: firestore.DELETE_FIELD
+        })
 
     def update_mappings(self, company_id, mappings: dict):
         ref = self.companies.document(company_id)
