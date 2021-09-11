@@ -2,5 +2,5 @@ numpy
 pandas
 scikit-learn
 firebase_admin
-functools
+functools32
 streamlit
