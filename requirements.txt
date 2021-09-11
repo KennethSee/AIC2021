@@ -1,7 +1,6 @@
 alabaster==0.7.12
 altair==4.1.0
 applaunchservices==0.2.1
-asn1crypto @ file:///opt/concourse/worker/volumes/live/29c500db-6cdf-4cc7-7df8-fca74d6f0b64/volume/asn1crypto_1594339172552/work
 astor==0.8.1
 astropy==4.0.1.post1
 atomicwrites==1.4.0
