@@ -1,7 +1,7 @@
 import streamlit as st
 
 from Pages.multi_page import MultiPage
-from Pages import login, financial_import, view_financials, manage_drivers, driver_values
+from Pages import login, financial_import, view_financials, manage_drivers, driver_values, map_drivers, prediction
 from db import DB
 
 def main():
@@ -16,6 +16,8 @@ def main():
     app.add_page('View Financials', view_financials.app)
     app.add_page('Manage Drivers', manage_drivers.app)
     app.add_page('Set Driver Values', driver_values.app)
+    app.add_page('Map Drivers', map_drivers.app)
+    app.add_page('Generate Forecast', prediction.app)
 
     app.run()
 
