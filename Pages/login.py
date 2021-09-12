@@ -14,7 +14,7 @@ def app():
         st.subheader('Welcome to Forety Two, the SME\'s guide to the universe!')
         st.subheader('To get started, please enter your company name.')
 
-        st.image('deepthought.jpg')
+        st.image('deepthought.png')
 
         username = st.text_input('What is your company name?', key='login_username')
         login = st.button('Login')
