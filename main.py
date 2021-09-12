@@ -8,7 +8,7 @@ def main():
     app = MultiPage()
     st.session_state['db'] = DB('secrets/aic2021-b72a6-firebase-adminsdk-cs1gs-777235e9ad.json')
 
-    st.title('ACCOUNTING INNOVATION CHALLENGE 2021')
+    st.title('FORETY TWO')
 
     # page applications
     app.add_page('Login', login.app)
