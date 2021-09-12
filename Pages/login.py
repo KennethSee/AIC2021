@@ -11,6 +11,9 @@ def app():
             settings.clear_session()
             st.success('You have successfully logged out.')
     else:
+        st.subheader('Welcome to Forety Two, the SME\'s guide to the universe!')
+        st.subheader('To get started, please enter your company\'s name.')
+
         username = st.text_input('What is your company name?', key='login_username')
         login = st.button('Login')
 
