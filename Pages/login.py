@@ -11,7 +11,7 @@ def app():
             settings.clear_session()
             st.success('You have successfully logged out.')
     else:
-        st.subheader('Welcome to Forety Two, the SME\'s guide to the universe!')
+        st.subheader('Welcome to ForetyTwo, an SME\'s guide to the galaxy!')
         st.subheader('To get started, please enter your company name.')
 
         st.image('deepthought.png')
