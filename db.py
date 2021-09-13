@@ -47,7 +47,7 @@ class DB:
         if ref.get().exists:
             return ref.get().to_dict()
         else:
-            return None
+            return {}
 
     def insert_driver(self, company_id: str, driver_id: str, driver_info: dict):
         ref = self.drivers.document(company_id)
